@@ -1,6 +1,6 @@
 # Learning rn-food-app
 
-Version: 0.0.1 - 17 Jun 2020
+Version: 0.0.2 - 18 Jun 2020
 
 ## Description
 

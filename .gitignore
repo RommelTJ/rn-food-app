@@ -16,3 +16,6 @@ web-report/
 
 # macOS
 .DS_Store
+
+# Secrets
+env.js
