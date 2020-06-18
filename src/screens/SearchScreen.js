@@ -9,9 +9,17 @@ const SearchScreen = () => {
     setSearchTerm(text);
   };
 
+  const onSearchTermSubmit = () => {
+    console.log("Submit!");
+  }
+
   return (
     <View>
-      <SearchBar searchTerm={searchTerm} onSearchTermChange={onSearchTermChange} />
+      <SearchBar
+        searchTerm={searchTerm}
+        onSearchTermChange={onSearchTermChange}
+        onSearchTermSubmit={onSearchTermSubmit}
+      />
       <Text>Search Term: {searchTerm}</Text>
     </View>
   );

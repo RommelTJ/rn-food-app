@@ -13,6 +13,7 @@ const SearchBar = (props) => {
         autoCorrect={false}
         value={props.searchTerm}
         onChangeText={(text) => props.onSearchTermChange(text)}
+        onEndEditing={props.onSearchTermSubmit}
       />
     </View>
   );
