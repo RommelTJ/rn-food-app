@@ -7,13 +7,20 @@ import yelp from "../api/yelp";
 const SearchScreen = () => {
   const [searchTerm, setSearchTerm] =  useState("");
   const [yelpResults, setYelpResults] = useState([]);
-  
+
+  const searchAPI = async() => {
+    const searchParams = { term: searchTerm, location: "San Diego, CA", limit: 50 };
+    const response = await yelp.get("/search", { params: searchParams });
+    const businesses = response.data.businesses;
+    setYelpResults(businesses);
+  };
+
   const onSearchTermChange = (text) => {
     setSearchTerm(text);
   };
 
   const onSearchTermSubmit = () => {
-    console.log("Submit!");
+    searchAPI();
   }
 
   return (
