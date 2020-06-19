@@ -35,7 +35,7 @@ const SearchScreen = () => {
         onSearchTermChange={onSearchTermChange}
         onSearchTermSubmit={onSearchTermSubmit}
       />
-      <Text>{errorMessage}</Text>
+      { errorMessage ? <Text>{errorMessage}</Text> : undefined }
       <Text>We have found {yelpResults.length} results</Text>
     </View>
   );
