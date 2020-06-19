@@ -9,9 +9,9 @@ const SearchScreen = () => {
   const [yelpResults, setYelpResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const searchAPI = async() => {
+  const searchAPI = async(termParam) => {
     try {
-      const searchParams = {term: searchTerm, location: "San Diego, CA", limit: 50};
+      const searchParams = {term: termParam, location: "San Diego, CA", limit: 50};
       const response = await yelp.get("/search", {params: searchParams});
       const businesses = response.data.businesses;
       setYelpResults(businesses);
@@ -25,8 +25,8 @@ const SearchScreen = () => {
     setSearchTerm(text);
   };
 
-  const onSearchTermSubmit = () => {
-    searchAPI();
+  const onSearchTermSubmit = (termParam) => {
+    searchAPI(termParam);
   }
 
   return (
@@ -34,7 +34,7 @@ const SearchScreen = () => {
       <SearchBar
         searchTerm={searchTerm}
         onSearchTermChange={onSearchTermChange}
-        onSearchTermSubmit={onSearchTermSubmit}
+        onSearchTermSubmit={() => onSearchTermSubmit(searchTerm)}
       />
       { errorMessage ? <Text>{errorMessage}</Text> : undefined }
       <Text>We have found {yelpResults.length} results</Text>
