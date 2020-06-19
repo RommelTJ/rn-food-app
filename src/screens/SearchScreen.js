@@ -15,6 +15,7 @@ const SearchScreen = () => {
       const response = await yelp.get("/search", {params: searchParams});
       const businesses = response.data.businesses;
       setYelpResults(businesses);
+      setErrorMessage("");
     } catch (err) {
       setErrorMessage("Something went wrong. Please try again later.");
     }
