@@ -10,7 +10,6 @@ const SearchScreen = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const searchAPI = async(termParam) => {
-    console.log("hi there");
     try {
       const searchParams = {term: termParam, location: "San Diego, CA", limit: 50};
       const response = await yelp.get("/search", {params: searchParams});
@@ -29,8 +28,6 @@ const SearchScreen = () => {
   const onSearchTermSubmit = (termParam) => {
     searchAPI(termParam);
   }
-
-  searchAPI("Pasta");
 
   return (
     <View>
