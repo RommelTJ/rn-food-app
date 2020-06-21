@@ -12,9 +12,7 @@ const ResultsList = (props) => {
         horizontal
         data={results}
         keyExtractor={(r) => r.id}
-        renderItem={({ item }) => {
-          return <ResultsDetail />;
-        }}
+        renderItem={({ item }) => <ResultsDetail result={item} />}
       />
     </View>
   );
