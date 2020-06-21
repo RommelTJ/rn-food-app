@@ -6,7 +6,7 @@ const ResultsList = (props) => {
   const {title, results} = props;
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.titleStyle}>{title}</Text>
       <FlatList
         horizontal
@@ -21,7 +21,12 @@ const ResultsList = (props) => {
 const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginHorizontal: 15,
+    marginBottom: 5
+  },
+  container: {
+    marginBottom: 10
   }
 });
 
