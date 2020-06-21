@@ -6,11 +6,16 @@ const ResultsList = (props) => {
 
   return (
     <View>
-      <Text>{title}</Text>
+      <Text style={styles.titleStyle}>{title}</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  titleStyle: {
+    fontSize: 18,
+    fontWeight: 'bold'
+  }
+});
 
 export default ResultsList;
