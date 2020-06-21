@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import SearchBar from "../components/SearchBar";
 import useYelpBusinesses from "../hooks/useYelpBusinesses";
+import ResultsList from "../components/ResultsList";
 
 const SearchScreen = () => {
   const [searchTerm, setSearchTerm] =  useState("");
@@ -25,6 +26,9 @@ const SearchScreen = () => {
       />
       { errorMessage ? <Text>{errorMessage}</Text> : undefined }
       <Text>We have found {yelpResults.length} results</Text>
+      <ResultsList />
+      <ResultsList />
+      <ResultsList />
     </View>
   );
 };
