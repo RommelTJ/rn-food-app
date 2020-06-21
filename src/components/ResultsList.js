@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 const ResultsList = (props) => {
   const {title, results} = props;
@@ -7,7 +7,14 @@ const ResultsList = (props) => {
   return (
     <View>
       <Text style={styles.titleStyle}>{title}</Text>
-      <Text>Results: {results.length}</Text>
+      <FlatList
+        horizontal
+        data={results}
+        keyExtractor={(r) => r.id}
+        renderItem={({ item }) => {
+          return <Text>{item.name}</Text>;
+        }}
+      />
     </View>
   );
 };
