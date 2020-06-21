@@ -6,7 +6,7 @@ const ResultsDetail = (props) => {
   return (
     <View>
       <Image style={styles.image} source={{ uri: result.image_url }} />
-      <Text>{ result.name }</Text>
+      <Text style={styles.name}>{ result.name }</Text>
     </View>
   );
 };
@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
     width: 250,
     borderRadius: 4,
     height: 120
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: 14
   }
 });
 
