@@ -27,7 +27,6 @@ const SearchScreen = () => {
         onSearchTermSubmit={() => onSearchTermSubmit(searchTerm)}
       />
       { errorMessage ? <Text>{errorMessage}</Text> : undefined }
-      <Text>We have found {yelpResults.length} results</Text>
       <ScrollView>
         <ResultsList title="Cost Effective" results={filterResultsByPrice('$')} />
         <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')} />
