@@ -7,6 +7,7 @@ import ResultsDetail from "./ResultsDetail";
 const ResultsList = (props) => {
   const {title, results, navigation} = props;
 
+  if (!results.length) return null;
   return (
     <View style={styles.container}>
       <Text style={styles.titleStyle}>{title}</Text>
