@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import ResultsDetail from "./ResultsDetail";
 
 const ResultsList = (props) => {
-  const {title, results} = props;
+  const {title, results, navigation} = props;
 
   return (
     <View style={styles.container}>
@@ -13,7 +13,13 @@ const ResultsList = (props) => {
         showsHorizontalScrollIndicator={false}
         data={results}
         keyExtractor={(r) => r.id}
-        renderItem={({ item }) => <ResultsDetail result={item} />}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity onPress={() => navigation.navigate("ResultsShow")}>
+              <ResultsDetail result={item} />
+            </TouchableOpacity>
+          );
+        }}
       />
     </View>
   );
