@@ -23,9 +23,11 @@ const ResultsShowScreen = (props) => {
     }
   };
 
+
+  if (!result) return null;
   return (
     <View>
-      <Text>ResultsShowScreen: {(result && result.photos && result.photos.length) || 0}</Text>
+      <Text>{result.name}: {(result.photos && result.photos.length) || 0}</Text>
     </View>
   );
 };
