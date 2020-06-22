@@ -1,36 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
-import yelp from "../api/yelp";
+import useYelpBusiness from "../hooks/useYelpBusiness";
 
 const ResultsShowScreen = (props) => {
   const { navigation } = props;
-
-  const [result, setResult] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => { getBusiness(id).then() }, []);
-
   const id = navigation.getParam("id");
 
-  const getBusiness = async(id) => {
-    try {
-      const response = await yelp.get(`/${id}`);
-      const business = response.data;
-      setResult(business);
-      setErrorMessage("");
-    } catch (e) {
-      console.log("HERE?")
-      setErrorMessage("Something went wrong. Please try again later.");
-    }
-  };
+  const [yelpResult, errorMessage] = useYelpBusiness(id);
 
-
-  if (!result || errorMessage) return <View><Text>{errorMessage}</Text></View>;
+  if (!yelpResult || errorMessage) return <View><Text>{errorMessage}</Text></View>;
   return (
     <View>
-      <Text>{result.name}</Text>
+      <Text>{yelpResult.name}</Text>
       <FlatList
-        data={result.photos}
+        data={yelpResult.photos}
         keyExtractor={(photo) => photo}
         renderItem={({item}) => {
           return <Image style={styles.image} source={{uri: item}} />;
