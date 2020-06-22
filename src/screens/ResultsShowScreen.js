@@ -6,7 +6,7 @@ const ResultsShowScreen = (props) => {
   const { navigation } = props;
 
   const [result, setResult] = useState(null);
-  const [error, setError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => { getBusiness(id).then() }, []);
 
@@ -17,14 +17,15 @@ const ResultsShowScreen = (props) => {
       const response = await yelp.get(`/${id}`);
       const business = response.data;
       setResult(business);
-      setError("");
+      setErrorMessage("");
     } catch (e) {
-      setError("Something went wrong. Please try again later.");
+      console.log("HERE?")
+      setErrorMessage("Something went wrong. Please try again later.");
     }
   };
 
 
-  if (!result) return null;
+  if (!result || errorMessage) return <View><Text>{errorMessage}</Text></View>;
   return (
     <View>
       <Text>{result.name}</Text>
