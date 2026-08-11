@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "~9.5.1",
-    "@babel/core": "^7.8.6"
+    "@babel/core": "^7.29.6"
   },
   "private": true
 }
